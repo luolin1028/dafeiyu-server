@@ -1,4 +1,4 @@
-# AstrBot entrypoint v4 for the Pterodactyl / Nodaroo Python egg.
+# AstrBot entrypoint v5 for the Pterodactyl / Nodaroo Python egg.
 # Installs AstrBot into a local venv (never touches the read-only system pip).
 import os
 import shutil
@@ -79,7 +79,7 @@ def ensure_local():
     add_local_paths()
 
 
-print("[dafeiyu] app.py v4", flush=True)
+print("[dafeiyu] app.py v5", flush=True)
 
 if not in_venv():
     if ensure_venv():
@@ -99,6 +99,7 @@ except ModuleNotFoundError as exc:
 
 for d in ("data", "data/config", "data/plugins", "data/temp"):
     (ROOT / d).mkdir(parents=True, exist_ok=True)
+(ROOT / ".astrbot").touch(exist_ok=True)
 
 for p in ("/tmp", str(ROOT)):
     try:
